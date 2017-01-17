@@ -383,49 +383,5 @@
                   $scope.drawerIsOpen = ctrl.isOpen;
                 }
             }
-        }])
-        .directive('drawerClose', ['$ionicHistory', '$timeout', function ($ionicHistory, $timeout) {
-            return {
-                restrict: 'A',
-                link: function ($scope, $element, $attr, ctrl) {
-                    $element.bind('click', function () {
-
-                        var historyOptions = {};
-
-                        if ($attr.uiSref == 'app.main') {
-                            historyOptions = {
-                                disableAnimate: true,
-                                disableBack: true
-                            };
-                        } else {
-                            historyOptions = {
-                                disableAnimate: true
-                            };
-                        }
-
-                        $ionicHistory.nextViewOptions(historyOptions);
-
-                        if (($attr.goNative !== undefined) && window.plugins && window.plugins.nativepagetransitions) {
-                            $timeout(function () {
-                                $scope.closeDrawer();
-                            }, window.plugins.nativepagetransitions.globalOptions.duration);
-                        } else {
-                            $timeout(function () {
-                                $scope.closeDrawer();
-                            }, 500);
-                        }
-                    });
-                }
-            }
-        }])
-        .directive('drawerToggle', [function () {
-            return {
-                restrict: 'A',
-                link: function ($scope, $element, $attr, ctrl) {
-                    $element.bind('click', function () {
-                        $scope.toggleDrawer();
-                    });
-                }
-            }
         }]);
 })();
