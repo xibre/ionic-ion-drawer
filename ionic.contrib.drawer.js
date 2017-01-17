@@ -364,15 +364,15 @@
                 link: function ($scope, $element, $attr, ctrl) {
                     $element.addClass($attr.side + ' closed');
 
-                    $scope.openDrawer = function () {
+                    $rootScope.openDrawer = function () {
                         ctrl.open();
                     };
 
-                    $scope.closeDrawer = function () {
+                    $rootScope.closeDrawer = function () {
                         ctrl.close();
                     };
 
-                    $scope.toggleDrawer = function () {
+                    $rootScope.toggleDrawer = function () {
                         if (ctrl.isOpen()) {
                             ctrl.close();
                         } else {
@@ -380,7 +380,7 @@
                         }
                     };
                   
-                  $scope.drawerIsOpen = ctrl.isOpen;
+                  $rootScope.drawerIsOpen = ctrl.isOpen;
                 }
             }
         }]);
