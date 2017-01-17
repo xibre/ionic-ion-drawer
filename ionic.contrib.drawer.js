@@ -291,10 +291,10 @@
                         var opacity;
                         if (side === SIDE_LEFT) {
                             newX = Math.min(0, (-width + (lastX - offsetX)));
-                            opacity = 1 + parseFloat(newX / width).toFixed(2);
+                            opacity = 1;
                         } else if (side === SIDE_RIGHT) {
                             newX = Math.max(0, (width - (docWidth - lastX + offsetX)));
-                            opacity = 1 - parseFloat(newX / width).toFixed(2);
+                            opacity = 1;
                         }
 
 
