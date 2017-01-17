@@ -351,6 +351,12 @@
 
                 this.isOpen = isOpen;
 
+                $ionicGesture.on('drag', function(e){
+                    if(e.gesture.direction === side && isOpen()) {
+                        closeDrawer();
+                    }
+                }, $overlay);
+
                 $ionicGesture.on('drag', doDrag, $document);
                 $ionicGesture.on('dragend', doEndDrag, $document);
                 $overlay.on('click', this.close);
