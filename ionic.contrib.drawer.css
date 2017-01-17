@@ -2,7 +2,7 @@ drawer {
   display: block;
   position: fixed;
   height: 100%;
-  width: 90%;
+  width: 275px;
   z-index: 100;
   background: #ffffff;
 }
