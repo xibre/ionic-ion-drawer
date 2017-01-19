@@ -409,5 +409,15 @@
                     });
                 }
             }
+        }])
+        .directive('drawerOpen', ['$rootScope', function ($rootScope) {
+            return {
+                restrict: 'A',
+                link: function ($scope, $element, $attr, ctrl) {
+                    $element.bind('click', function () {
+                        $rootScope.openDrawer();
+                    });
+                }
+            }
         }]);
 })();
