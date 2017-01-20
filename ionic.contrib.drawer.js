@@ -394,7 +394,8 @@
             return {
                 restrict: 'A',
                 link: function ($scope, $element, $attr, ctrl) {
-                    $element.bind('click', function () {
+                    $element.bind('click', function (e) {
+                        e.stopPropagation();
                         $rootScope.toggleDrawer();
                     });
                 }
@@ -404,7 +405,8 @@
             return {
                 restrict: 'A',
                 link: function ($scope, $element, $attr, ctrl) {
-                    $element.bind('click', function () {
+                    $element.bind('click', function (e) {
+                        e.stopPropagation();
                         $rootScope.closeDrawer();
                     });
                 }
@@ -414,7 +416,8 @@
             return {
                 restrict: 'A',
                 link: function ($scope, $element, $attr, ctrl) {
-                    $element.bind('click', function () {
+                    $element.bind('click', function (e) {
+                        e.stopPropagation();
                         $rootScope.openDrawer();
                     });
                 }
