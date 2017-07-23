@@ -39,8 +39,6 @@
                 var STATE_CLOSE = 'close';
                 var STATE_OPEN = 'open';
 
-                var isTargetDrag = false;
-
                 var side = $attr.side === SIDE_LEFT ? SIDE_LEFT : SIDE_RIGHT;
                 var width = el.clientWidth;
                 var docWidth = $document[0].body.clientWidth;
@@ -137,7 +135,7 @@
                     return drawerState === STATE_OPEN;
                 };
 
-                var startDrag = function (e) {
+                var startDrag = function () {
                     if (!$ionicSideMenuDelegate.canDragContent()) {
                         return;
                     }
@@ -149,7 +147,7 @@
                     offsetX = lastX - startX;
                 };
 
-                var startTargetDrag = function (e) {
+                var startTargetDrag = function () {
                     if (!$ionicSideMenuDelegate.canDragContent()) {
                         return;
                     }
@@ -158,17 +156,15 @@
                     toggleOverlay(STATE_OPEN);
 
                     dragging = true;
-                    isTargetDrag = true;
                     offsetX = lastX - startX;
                 };
 
-                var doEndDrag = function (e) {
+                var doEndDrag = function () {
                     if (!$ionicSideMenuDelegate.canDragContent()) {
                         return;
                     }
 
                     startX = lastX = offsetX = null;
-                    isTargetDrag = false;
 
                     if (!dragging) {
                         return;
@@ -363,7 +359,7 @@
             }
         ])
 
-        .directive('drawer', ['$rootScope', '$ionicGesture', function ($rootScope, $ionicGesture) {
+        .directive('drawer', ['$rootScope', function ($rootScope) {
             return {
                 restrict: 'E',
                 controller: 'drawerCtrl',
@@ -393,7 +389,7 @@
         .directive('drawerToggle', ['$rootScope', function ($rootScope) {
             return {
                 restrict: 'A',
-                link: function ($scope, $element, $attr, ctrl) {
+                link: function ($scope, $element) {
                     $element.bind('click', function (e) {
                         e.stopPropagation();
                         $rootScope.toggleDrawer();
@@ -404,7 +400,7 @@
         .directive('drawerClose', ['$rootScope', function ($rootScope) {
             return {
                 restrict: 'A',
-                link: function ($scope, $element, $attr, ctrl) {
+                link: function ($scope, $element) {
                     $element.bind('click', function (e) {
                         e.stopPropagation();
                         $rootScope.closeDrawer();
@@ -415,7 +411,7 @@
         .directive('drawerOpen', ['$rootScope', function ($rootScope) {
             return {
                 restrict: 'A',
-                link: function ($scope, $element, $attr, ctrl) {
+                link: function ($scope, $element) {
                     $element.bind('click', function (e) {
                         e.stopPropagation();
                         $rootScope.openDrawer();
