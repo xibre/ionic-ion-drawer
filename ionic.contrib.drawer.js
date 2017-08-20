@@ -381,10 +381,10 @@
                             ctrl.open();
                         }
                     };
-                  
+
                   $rootScope.drawerIsOpen = ctrl.isOpen;
                 }
-            }
+            };
         }])
         .directive('drawerToggle', ['$rootScope', function ($rootScope) {
             return {
@@ -395,7 +395,7 @@
                         $rootScope.toggleDrawer();
                     });
                 }
-            }
+            };
         }])
         .directive('drawerClose', ['$rootScope', function ($rootScope) {
             return {
@@ -406,7 +406,7 @@
                         $rootScope.closeDrawer();
                     });
                 }
-            }
+            };
         }])
         .directive('drawerOpen', ['$rootScope', function ($rootScope) {
             return {
@@ -417,6 +417,6 @@
                         $rootScope.openDrawer();
                     });
                 }
-            }
+            };
         }]);
 })();
